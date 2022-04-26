@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edga"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale"/>
+
+  <title>margin纵向重叠问题</title>
+  <style>
+  p{
+    font-size:16px;
+    line-height: 1;
+    margin-top: 10px;
+    margin-bottom:15px;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <h3>1.如下代码,A和B之间距离是多少</h3>
+    * 相邻元素的margin-top和margin-bottom会发生重叠<br>
+    * 空白内容的p标签也会重叠
+    答案为15px
+    <p>A</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>B</p>
+  </div>
+</body>
+<script>
+
+</script>
+</html>

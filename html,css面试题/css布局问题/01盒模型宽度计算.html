@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    name属性值viewport表示视口,不仅匹配PC端,也可匹配移动端
+    width=device-width ：表示宽度是设备屏幕的宽度
+    initial-scale=1.0：表示初始的缩放比例
+  -->
+  <title>盒模型宽度计算</title>
+  <style>
+    #div1{
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid pink;
+    }
+     #div2{
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid pink;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+ <h3>1.以下div1的offsetWidth的宽度计算？</h3>
+ offsetWidth = (内容宽度+内边距+边框) ,无外边距<br>
+ 因此offsetWidth = 100+10+10+1+1 = 122
+  <div id='div1'>div1</div>
+  <img src="img/盒模型.png">
+
+  <h3>补充，2.如何让offsetWidth等于100px,该如何做?</h3>
+      给css样式加上box-sizing: border-box;<br>
+      加上后如下图 宽度+padding+border为100
+  <div id='div2'>div2</div>
+  <img src="img/怪异盒模型.png">
+
+</body>
+
+</html>
