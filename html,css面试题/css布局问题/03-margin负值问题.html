@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edga" />
+  <meta name="viewport" content="width=device-width, initial-scale">
+  <title>documet</title>
+</head>
+<style>
+    .float-left {
+    float: left;
+  }
+
+  .clearfix:after {
+    content:'';
+    display: table;
+    clear: both;
+  }
+  .container {
+    border: 1px solid pink;
+    padding: 10px;
+  }
+  .container .item {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container .border-blue {
+    border: 1px solid blue;
+  }
+
+  .container .border-red {
+    border: 1px solid red;
+  }
+</style>
+
+<body>
+  <div>
+    1.margin负值问题<br>
+    * margin-top和margin-left负值，元素向上,向左移动<br>
+    * margin-right负值,右侧元素左移，自身不受影响<br>
+    *margin-bottom负值,下方元素上移。自身不受影响
+
+
+    <p>1.用于测试margin top bottom的负数情况</p>
+    <div class="container">
+      <div class="item border-blue">
+        item1
+      </div>
+      <div class="item border-red">
+        item2
+      </div>
+    </div>
+
+    <p>2.用于测试margin left right的负数情况</p>
+    <div class="container clearfix">
+      <div class="item border-blue float-left">
+        item3
+      </div>
+      <div class="item border-red float-left">
+        item4
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
