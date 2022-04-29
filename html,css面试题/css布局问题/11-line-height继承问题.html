@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+ body{
+   font-size:20px;
+  /* 写具体数字，如30px,则继承该值,这时p标签line-height也为30px */
+   /* line-height:50px; */
+
+
+  /* 写比例，如2,则继承该比例,
+  这时p标签line-heught为比例*p标签的font-size大小
+  1.5*16px=24px
+  */
+   /* line-height:1.5 */
+
+
+ /* 写百分比,如200% ,则继承body计算出来后的值
+  20px * 200% = 40 p标签的line-height为40px
+ */
+   line-height:200%
+
+ }
+ p {
+   background-color:#ccc;
+   font-size:16px;
+ }
+</style>
+<body>
+<p>这是一段文字</p>
+</body>
+</html>

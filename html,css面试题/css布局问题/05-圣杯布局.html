@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    圣杯布局
+  </title>
+</head>
+<style>
+  body {
+    min-width: 550px;
+  }
+  #header {
+    text-align: center;
+    background-color: pink;
+  }
+  /* 1.设置浮动 */
+    #container .float-left {
+    float: left;
+
+  }
+  /* 2.通过padding预留空位 */
+  #container{
+    padding:0 200px
+  }
+
+
+  #center {
+    background-color: #Dddd;
+    width: 100%;
+
+  }
+
+  #left {
+    position: relative;
+    background-color: yellow;
+    width: 200px;
+    /* 3.让元素向左移动 两侧使用margin负值，以便和中间内容横向重叠*/
+    margin-left: -100%;
+    right:200px;
+
+  }
+
+  #right {
+    background-color: yellow;
+    width: 200px;
+    /* 4. margin-right让右侧元素向左移动*/
+    margin-right: -200px;
+  }
+  #footer {
+    text-align: center;
+    background-color: pink;
+    /* 清除尾部浮动 */
+    /* clear:both; */
+  }
+  /* 手写clearfix */
+  .claerfix:after{
+    content:'';
+    display:table;
+    clear:both;
+  }
+</style>
+
+<body>
+  <!-- 圣杯布局和双飞翼布局的目的:
+  * 三栏布局,中间一栏最先加载(内容最重要)
+  * 两侧固定,中间内容随着宽度自适应
+  * 一般用于PC网页
+
+  圣杯布局和双飞翼布局技术总结:
+  * 使用float布局
+   * 防止中间内容被覆盖，一个用圣杯布局用padding,双飞翼用margin
+  * 两侧使用margin负值，以便和中间内容横向重叠
+  -->
+  <div id="header">header 头部</div>
+  <div id="container" class="claerfix">
+    <div id="center" class="float-left">this is center</div>
+    <div id="left" class="float-left">this is left</div>
+    <div id="right" class="float-left">this is right</div>
+  </div>
+  <div id="footer"> foot 尾部</div>
+</body>
+
+</html>

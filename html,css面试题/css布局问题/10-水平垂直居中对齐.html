@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水平对齐</title>
+</head>
+<style>
+  .container {
+    border: 1px solid #ccc;
+    height: 200px;
+  }
+
+  .item {
+    background-color: pink;
+  }
+
+  .container-1 {
+    /* 1.行内元素水平垂直居中对齐 */
+    text-align: center;
+    line-height: 200px;
+    height: 200px;
+
+  }
+
+
+  .container-2 {
+    position: relative;
+  }
+
+  .container-2 .item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /* 2. 绝对定位设置left top为50%,margin left和top设置为宽的一半 必须知道子元素尺寸*/
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px
+  }
+
+  .container-3 {
+    position: relative;
+  }
+
+  .container-3 .item {
+    /* 3.通过tranfroms */
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .container-4 {
+    position: relative;
+  }
+
+  .container-4 .item {
+    /* 4.通过绝对定位全部设置为0,然后通过margin::auto设置 */
+    width: 100px;
+    height: 100px;
+     position: absolute;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
+    margin:auto;
+  }
+
+
+  .container-5 {
+    /* 5.通过display:flex */
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+
+  .container-5 .item {
+    width: 100px;
+    height: 100px;
+
+  }
+</style>
+
+<body>
+  <div class="container container-1">
+    <span class="item">行内元素水平垂直居中对齐</span>
+  </div>
+  <div class="container container-2">
+    <div class="item">水平垂直居中</div>
+  </div>
+  <div class="container container-3">
+    <div class="item">水平垂直居中</div>
+  </div>
+
+  <div class="container container-4">
+    <div class="item">水平垂直居中</div>
+  </div>
+
+    <div class="container container-5">
+      <div class="item">水平垂直居中</div>
+    </div>
+</body>
+
+</html>

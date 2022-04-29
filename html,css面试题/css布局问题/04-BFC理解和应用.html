@@ -6,10 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  .container{
+border:1px solid black;
+
+  }
+  .float-left{
+      float: left;
+
+  }
+  .item{
+     width: 100px;
+      height: 100px;
+      border: 1px solid red;;
+  }
+  .bfc{
+    overflow: hidden; /*触发元素BFC*/
+  }
+</style>
 <body>
  <div>
    <p>BFC</p>
    *block format context 块级格式化上下文
+   *一块独立渲染区域，内部元素的渲染不会影响边界以外的元素
+   就是内部元素无论尺寸、定位如何变化，都不会影响外部元素的定位和尺寸
+
+   形成BFC条件:
+   1.float不是none
+   2.position是absolute或fixed
+   3.overflow不是visible
+   4.display 为 inline-block, table-cell， table-caption， flex， inline-flex
+
+   常见应用:清除浮动
+
+    <div class="container bfc">
+      <div class="item float-left">item</div>
+      <p class="bfc" style="background: pink;">123456789</p>
+    </div>
  </div>
 </body>
 </html>
