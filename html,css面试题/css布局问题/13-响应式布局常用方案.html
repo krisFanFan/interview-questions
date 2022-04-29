@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式布局常用方案</title>
+</head>
+<style>
+@media only screen and (max-width:374px){
+  /* ipone5 或者更小尺寸手机，以iphone5的宽度(320px)比例设置 font-size */
+  /*
+  375/320 = 100/86
+  */
+  html{
+    font-size:86px;
+  }
+}
+@media only screen and (min-width:375px) and (max-width:413px) {
+  /* 以iphone6/7/8 和iphone x 为标准*/
+  html{
+    font-size:100px;
+  }
+}
+@media only screen and (min-width:414px){
+  /* iphone  或者更大的尺寸，以iphone6p的宽度(414px) 比例设置 font-size */
+  /* 100/110 = 375/414 */
+  html{
+    font-size:110px;
+  }
+}
+
+body{
+ font-size:0.16rem;
+}
+#div1{
+  background-color: #ccc;
+width: 1rem;
+height: 1rem;
+}
+</style>
+<body>
+<!--
+1.media-query,感觉不同的屏幕宽度设置根元素font-size
+2.rem，根据根元素的相对单位
+
+ -->
+ <div id="div1">
+   this is div111
+ </div>
+</body>
+</html>
