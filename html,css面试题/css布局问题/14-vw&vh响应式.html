@@ -5,16 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vw/vh</title>
+  <style>
+    body{
+      margin:0;
+      padding:0;
+    }
+    #container{
+      background-color:red;
+      width:20vw;
+      height:20vh;
+    }
+  </style>
 </head>
 <body>
+<img src="./img/网页视口.png">
+<div>
+667:屏幕高度 <br>
+553:视口高度 <br>
+红色小方块:body高度
+</div>
+<div id="container"></div>
 <!--
- * rem的弊端: '阶梯性的'
+ * rem的弊端: 具有'阶梯性的'
 
  * 网页视口尺寸
  window.screen.height //屏幕高度
  window.innerHeight //网页视口高度
  document.body.clientHeight //body 高度
+width
 
+* vh 网页视口高度的1/100
+* vw 网页视口宽度的1/100
+* vmax 取两者最大值;vmin取两者最小值;
+
+//window.innerHeight ===100vh
  -->
 </body>
 </html>
