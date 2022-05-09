@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div style="margin: 200px">
+      <img style="transform: rotate(-90deg); width: 300px" src="./img//path_way.jpg" />
+      <img style="transform: rotate(-90deg); width: 300px" src="./img/commodity.jpg" />
+    </div>
+  </body>
+  <script>
+    /**
+     * 从郑州到桂林 走京广线高铁可直达 走京黔线需经贵阳转车 图示如下 问从郑州到桂林一共有几种方式
+     */
+    function mode(a, n, m) {
+      let result = [];
+      result.push(a);
+
+      for (var i = 0; i < n.length; i++) {
+        for (let j = 0; j < m.length; j++) {
+          let res = `${n[i]}+${m[j]}`;
+          result.push(res);
+        }
+      }
+      return result.length;
+    }
+
+    console.log(mode(['A1'], ['B1', 'B2', 'B3'], ['C1C2', 'C3', 'C4C5']));
+
+    /**
+     * 一个商品需经过进货、加工、销售三个环节才能达到消费者手上，三个环节示意图如下，问一个商品达到消费者手上总共有几种方式
+     */
+    function way(Stock, Process, Sales) {
+      let result = [];
+      let yiw = [];
+      for (var i = 0; i < Process.length; i++) {
+        const SalesArr = Sales[i]
+         SalesArr.map(el=>{
+           let res =`${Process[i]}+${el}`
+           yiw.push(res)
+         })
+      }
+        for (var i = 0; i < Stock.length; i++) {
+          for (let j = 0; j < yiw.length; j++) {
+          let res = `${Stock[i]}+${yiw[j]}`;
+          result.push(res);
+        }
+      }
+      return result.length;
+    }
+    console.log(
+      way(['A1', 'A2', 'A3'], ['B1', 'B2', 'B3'], [['c1', 'c2', 'c3'], ['c4', 'c5', 'c6'], ['c7']])
+    );
+    // 21
+  </script>
+</html>
