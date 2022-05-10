@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let obj = {
+    name: 'hello',
+    hobby: {
+      a: 'eat meat',
+      b: 'play'
+    },
+    friend: ['李华', 'jack', 'Tom']
+  }
+  let parent = {
+    age: 19
+  }
+  Object.setPrototypeOf(obj, parent)
+
+  /**
+   * 深拷贝
+   * @param {Object} bj 要拷贝的对象
+   */
+  function deepClone(obj) {
+    if (typeof obj !== 'object' || obj == null) {
+      return obj
+    }
+    // 初始化返回结果
+    let result;
+    if (obj instanceof Array) {
+      result = []
+    } else {
+      result = {}
+    }
+    for(let key in obj){
+         //保证key不是原型的属性
+      if(obj.hasOwnProperty(key)){
+        result[key] = deepClone(obj[key])
+      }
+    }
+    return result
+  }
+  let objCopy = deepClone(obj)
+  objCopy.name = '臭男人'
+  objCopy.friend[0]= '臭男人'
+
+  console.log(objCopy, obj)
+
+
+</script>
+
+</html>
