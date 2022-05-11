@@ -14,47 +14,71 @@
     </div>
   </body>
   <script>
-    /**
-     * 从郑州到桂林 走京广线高铁可直达 走京黔线需经贵阳转车 图示如下 问从郑州到桂林一共有几种方式
-     */
-    function mode(a, n, m) {
-      let result = [];
-      result.push(a);
-      for (var i = 0; i < n.length; i++) {
-        for (let j = 0; j < m.length; j++) {
-          let res = `${n[i]}+${m[j]}`;
-          result.push(res);
+   const arr1 = ['国道', '动车', '高铁'];
+    const arr2 = ['梧州', '贵阳', '百色'];
+    const n = 1;
+
+    function arrive(arr1, arr2, n) {
+      let count = 0;
+      for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+          count++;
         }
       }
-      return result.length;
+      return n + count;
     }
 
-    console.log(mode(['A1'], ['B1', 'B2', 'B3'], ['C1C2', 'C3', 'C4C5']));
+    const count = arrive(arr1, arr2, n);
 
-    /**
-     * 一个商品需经过进货、加工、销售三个环节才能达到消费者手上，三个环节示意图如下，问一个商品达到消费者手上总共有几种方式
-     */
-    function way(Stock, Process, Sales) {
-      let result = [];
-      let yiw = [];
-      for (var i = 0; i < Process.length; i++) {
-        const SalesArr = Sales[i]
-         SalesArr.map(el=>{
-           let res =`${Process[i]}+${el}`
-           yiw.push(res)
-         })
-      }
-        for (var i = 0; i < Stock.length; i++) {
-          for (let j = 0; j < yiw.length; j++) {
-          let res = `${Stock[i]}+${yiw[j]}`;
-          result.push(res);
+
+
+    // ----------------------------------------------------------
+
+    const channel = ['苏宁', '天猫', '京东'];
+    const product = [
+      {
+        name: '富士康',
+        shop: [{ name: '富士康直销店', id: '1' }],
+      },
+      {
+        name: '华强北',
+        shop: [
+          { name: '华强北店1号', id: '1' },
+          { name: '华强北店2号', id: '2' },
+          { name: '华强北店3号', id: '3' },
+        ],
+      },
+
+      {
+        name: '华强南',
+        shop: [
+          { name: '华强南店1号', id: '1' },
+          { name: '华强南店2号', id: '2' },
+          { name: '华强南店3号', id: '3' },
+        ],
+      },
+    ];
+
+    function goods(channel, product) {
+      let count = 0;
+      channel.forEach((channelName) => {
+        if (channelName) {
+          product.forEach(({ name, shop }) => {
+            if (name) {
+              shop.forEach(({ id }) => {
+                id && ++count;
+              });
+            }
+          });
         }
-      }
-      return result.length;
+      });
+
+      return count;
     }
-    console.log(
-      way(['A1', 'A2', 'A3'], ['B1', 'B2', 'B3'], [['c1', 'c2', 'c3'], ['c4', 'c5', 'c6'], ['c7']])
-    );
-    // 21
+
+    const channelCount = goods(channel, product);
+    console.log(channelCount);
+    // -----------------------------------------------------------
+
   </script>
 </html>
