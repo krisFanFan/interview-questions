@@ -1,79 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <img src="./img//原型.png" />
-    <img src="./img//原型关系.png" />
-  </body>
-  <script>
-    // 父类
-    class People {
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Document</title>
+</head>
+
+<body>
+   <img src="./img//原型.png" />
+   <img src="./img//原型关系.png" />
+   <img src="./img//原型链.png" />
+
+</body>
+<script>
+   // 父类
+   class People {
       constructor(name, age) {
-        this.name = name;
-        this.age = age;
+         this.name = name;
+         this.age = age;
       }
       eat() {
-        return `${this.name}吃饭`;
+         return `${this.name}吃饭`;
       }
-    }
-    // fei.play()
+   }
+   // fei.play()
 
-    // class继承
-    // 子类
-    class Students extends People {
+   // class继承
+   // 子类
+   class Students extends People {
       constructor(name, age) {
-        // 使用super继承 属性
-        super(name, age);
+         // 使用super继承 属性
+         super(name, age);
       }
       sayHi() {
-        console.log('PHP');
+         console.log('PHP');
       }
-    }
-    let xialuo = new Students('夏洛', 23);
-    console.log(xialuo.name, xialuo.age);
-    xialuo.eat();
+   }
+   let xialuo = new Students('夏洛', 23);
+   // console.log(xialuo.name, xialuo.age);
+   xialuo.eat();
 
-    class teach extends People {
+   class teach extends People {
       constructor(name, age) {
-        // 使用super继承 属性
-        super(name, age);
+         // 使用super继承 属性
+         super(name, age);
       }
       sayHi() {
-        console.log('PHP');
+         console.log('PHP');
       }
-    }
-    let Mrwang = new teach('王老师', 23);
+   }
+   let Mrwang = new teach('王老师', 23);
 
-    // xialuo instanceof Students      true
-    // xialuo instanceof People        true
-    // xialuo instanceof Object        true
-    // Students instanceof Object      true
+   // xialuo instanceof Students      true
+   // xialuo instanceof People        true
+   // xialuo instanceof Object        true
+   // Students instanceof Object      true
 
-    // class本质上是函数
-    typeof People; //function
-    typeof Students; //function
+   // class本质上是函数
+   typeof People; //function
+   typeof Students; //function
 
-    console.log(Students.prototype);
-    console.log(xialuo.__proto__);
-    console.log(xialuo.__proto__ === Students.prototype);
+   console.log(Students.prototype);
+   console.log(xialuo.__proto__);
+   console.log(xialuo.__proto__ === Students.prototype);
 
-    /**
-     * 定义构造函数是时候都有一个显示（原型）prototype对象，通过函数创建的对象也将拥有这个原型对象,把方法都放到里面去
-     * 然后通过new实例化出来的对象（object）都有一个私有属性（隐式原型__proto__）,指向它的原型对象（prototype）。
-     * 该原型对象也有一个自己的原型对象（__proto__），层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。*/
+   /**
+    * 定义构造函数的时候都有一个显示（原型）prototype对象，通过函数创建的对象也将拥有这个原型对象,把方法都放到里面去
+    * 然后通过new实例化出来的对象（object）都有一个私有属性（隐式原型__proto__）,指向它的原型对象（prototype）。
+    * 该原型对象也有一个自己的原型对象（__proto__），层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。*/
 
-    // 原型关系:
-    // 每个class 都有显示原型prototype
-    // 每个实例都有隐式原型
-    // 实例的_proto_指向对应的class的prototype
+   // 原型关系:
+   // 每个class 都有显示原型prototype
+   // 每个实例都有隐式原型
+   // 实例的_proto_指向对应的class的prototype
 
-    //基于原则的执行规则:
-    // 获取属性或执行方法，先在自身属性与方法寻找
-    //如果找不到则自动去_proto_中查找
-  </script>
+   //基于原则的执行规则:
+   // 获取属性或执行方法，先在自身属性与方法寻找
+   //如果找不到则自动去_proto_中查找
+
+
+   // 原型链
+   console.log(Students.prototype.__proto__)
+   console.log(People.prototype)
+   console.log(People.prototype=== Students.prototype.__proto__)
+
+</script>
+
 </html>
